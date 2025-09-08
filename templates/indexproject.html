@@ -31,6 +31,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
+        /* Navigation Bar */
         header nav ul {
             list-style: none;
             padding: 0;
@@ -47,20 +48,21 @@
         header nav ul li a {
             color: white;
             text-decoration: none;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
 
         header nav ul li a:hover {
             color: #e56b6f; /* Light Red */
+            text-decoration: underline;
         }
 
         /* Main Section */
         .main-section {
-            /* background-image: url('../static/images/1.png'); */
-            /* background-size: cover; */
-            background-position: center;
-            /* padding: 80px 20px; */
+            background-color: #004d7f;
+            color: white;
             text-align: center;
+            padding: 80px 20px;
             position: relative;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
@@ -70,7 +72,6 @@
             font-weight: 700;
             margin-bottom: 20px;
             text-transform: uppercase;
-       
         }
 
         .main-section p {
@@ -236,19 +237,6 @@
 
         <h4>Dataset</h4>
         <p>The dataset used for training this model is the PPE detection dataset available on Roboflow. It contains images of people wearing PPE equipment in various environments. </p>
-
-        <!-- <ul>
-            <li>Hardhat</li>
-            <li>Mask</li>
-            <li>NO-Hardhat</li>
-            <li>NO-Mask</li>
-            <li>NO-Safety Vest</li>
-            <li>Person</li>
-            <li>Safety Cone</li>
-            <li>Safety Vest</li>
-            <li>Machinery</li>
-            <li>Vehicle</li>
-        </ul> -->
 
         <p>The training set contains 2.6k images, the validation set contains 114 images, and the testing set contains 82 images. The input dimensions for each image are 640x640.</p><br>
     </section>
