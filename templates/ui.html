@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video</title>
+    <style>
+        /* Global Styles */
+        body {
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        header {
+            background-color: #004d7f; /* Dark Blue */
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Navigation Bar */
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #e56b6f; /* Light Red */
+        }
+
+        /* Main Section Styles */
+        header.feature-box.top {
+            background-color: #111; /* Dark background for the top header */
+            height: 120px;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header.feature-box.second {
+            background-color: #006b97; /* Lighter Blue */
+            height: 60px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Video Section */
+        section.col-sm {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 1000px;
+            height: auto;
+            border-radius: 20px;
+            margin: 40px auto;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        section.col-sm img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 15px;
+            object-fit: contain;
+        }
+
+        /* Form Section */
+        .new {
+            background-color: #004d7f; /* Dark Blue */
+            color: white;
+            padding: 20px;
+            margin-top: -10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button Styles */
+        .btnCustom {
+            background-color: #e56b6f; /* Light Red */
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btnCustom:hover {
+            background-color: #d35e63; /* Darker Red */
+        }
+
+        /* Miscellaneous */
+        h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section with Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/FrontPage">Video/Image</a></li>
+                <li><a href="/webcam">LiveWebcam</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Object Detection Header -->
+    <header class="feature-box top">
+        <h1><strong>Object Detection using YOLOv8</strong></h1>
+    </header>
+
+    <!-- Output Video Section -->
+    <header class="feature-box second">
+        <h1><strong>Output Video</strong></h1>
+    </header>
+
+    <section class="col-sm">
+        <div class="text-center">
+            <img src="{{ url_for('webapp') }}" alt="Uploaded Video">
+        </div>
+    </section>
+
+</body>
+
+</html>

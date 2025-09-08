@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video/Image</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* White Background */
+            color: #333; /* Dark text for good contrast */
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Header Styles */
+        header.feature-box.top {
+            background-color: #004d7f; /* Dark Blue for Header */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        header.feature-box.second {
+            background-color: #006b97; /* Lighter Blue */
+            height: 60px;
+             color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Main Section for Video */
+        .features,
+        .col-sm {
+            background-color: #ffffff; /* White Background for the Video section */
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            padding: 20px;
+        }
+
+        .features img,
+        .col-sm img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            object-fit: contain;
+        }
+
+        /* Form Section */
+        .new {
+            background-color: #e56b6f; /* Light Red for Form Background */
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: -20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .new form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .new .custom-file-input {
+            background-color: #004d7f; /* Dark Blue for Button */
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            color: white;
+            border-radius: 5px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .new .custom-file-input:hover {
+            background-color: #003a5a; /* Darker Blue on Hover */
+        }
+
+        /* Button Styles */
+        .btnCustom {
+            background-color: #004d7f; /* Dark Blue for Submit Button */
+            color: white;
+            border: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btnCustom:hover {
+            background-color: #003a5a; /* Darker Blue on Hover */
+        }
+
+        /* Miscellaneous Styles */
+        .text-center {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+       
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        /* Add padding for sections */
+        section {
+            padding: 20px;
+        }
+          /* Header */
+        header {
+            background-color: #004d7f; /* Dark Blue */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #e56b6f; /* Light Red */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/FrontPage">Video/Image</a></li>
+                <li><a href="/webcam">LiveWebcam</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Header -->
+    <header class="feature-box top">
+        <h1><strong>Object Detection using YOLOv8</strong></h1>
+    </header>
+    <header class="feature-box second">
+        <h1><strong>Output Video</strong></h1>
+    </header>
+
+    <!-- Video Section -->
+    <section class="col-sm">
+        <div class="text-center">
+            <img src="{{ url_for('video') }}" alt="Upload video" />
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section>
+        <div class="new">
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                {{ form.file(class_="custom-file-input") }}
+
+                <div>
+                    <button type="submit" name="favorite" value="x" class="btnCustom">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+
+</html>
