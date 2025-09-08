@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ObjectDetection - Otomatiks</title>
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: left;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header */
+        header {
+            background-color: #004d7f; /* Dark Blue */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation Bar */
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #e56b6f; /* Light Red */
+            text-decoration: underline;
+        }
+
+        /* Main Section */
+        .main-section {
+            background-color: #004d7f;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .main-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        /* Enhanced Text Block Section */
+        .enhanced-text-block {
+            padding: 40px 20px;
+            text-align: left; /* Left Align Text */
+            margin: 20px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .enhanced-text-block h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .enhanced-text-block p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .enhanced-text-block ul {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .enhanced-text-block ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Feature Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+
+        .features figure {
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background-color: #fff;
+            padding: 10px;
+        }
+
+        .features figure:hover {
+            transform: translateY(-10px);
+        }
+
+        .features img {
+            width: 100%;
+            max-width: 500px; /* Increased Image Size */
+            border-bottom: 3px solid #004d7f;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .features figcaption {
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #004d7f;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* Buttons and Links */
+        .btn-primary {
+            background-color: #e56b6f; /* Light Red */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #d35e63; /* Darker Red */
+        }
+
+        .btn-link {
+            color: #004d7f; /* Dark Blue */
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .btn-link:hover {
+            color: #e56b6f; /* Light Red */
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="./templates/videoprojectnew.html">Video/Image</a></li>
+                <li><a href="./templates/ui.html">LiveWebcam</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section with Background Image -->
+    <section class="main-section">
+        <h1>Industry Safety Detection</h1>
+        <br>
+        <a href="#results" class="btn-primary">View Results</a>
+    </section>
+
+    <!-- Enhanced Text Block Section -->
+    <section class="enhanced-text-block">
+        <h1>PPE Safety Kit Object Detection</h1>
+        <p>This project aims to detect PPE safety kits (Personal Protective Equipment) using the YOLO (You Only Look Once) object detection algorithm. The model can detect various types of equipment, including:</p>
+
+        <ul>
+            <li>Hardhat</li>
+            <li>Mask</li>
+            <li>NO-Hardhat</li>
+            <li>NO-Mask</li>
+            <li>NO-Safety Vest</li>
+            <li>Person</li>
+            <li>Safety Cone</li>
+            <li>Safety Vest</li>
+            <li>Machinery</li>
+            <li>Vehicle</li>
+        </ul>
+
+        <h4>Dataset</h4>
+        <p>The dataset used for training this model is the PPE detection dataset available on Roboflow. It contains images of people wearing PPE equipment in various environments. </p>
+
+        <p>The training set contains 2.6k images, the validation set contains 114 images, and the testing set contains 82 images. The input dimensions for each image are 640x640.</p><br>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="features">
+        <figure>
+            <img src="../static/images/1.png" alt="YOLOv8 Result 1">
+            <figcaption>YOLOv8 Detection Result 1</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/2.png" alt="YOLOv8 Result 2">
+            <figcaption>YOLOv8 Detection Result 2</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/3.png" alt="YOLOv8 Result 3">
+            <figcaption>YOLOv8 Detection Result 3</figcaption>
+        </figure>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 PPE Detection. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
