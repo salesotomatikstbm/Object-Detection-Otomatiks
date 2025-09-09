@@ -203,9 +203,9 @@
     <header>
         <nav>
             <ul>
-                 <li><a href="/index.html">Home</a></li>
-                <li><a href="/sample.html">Video/Image</a></li>
-                <li><a href="/live.html">LiveWebcam</a></li>
+                <li><a href="https://salesotomatikstbm.github.io/Object-Detection-Otomatiks/">Home</a></li>
+                <li><a href="https://salesotomatikstbm.github.io/Object-Detection-Otomatiks/sample.html">Video/Image</a></li>
+                <li><a href="https://salesotomatikstbm.github.io/Object-Detection-Otomatiks/live.html">LiveWebcam</a></li>
             </ul>
         </nav>
     </header>
@@ -215,6 +215,8 @@
         <h1>Industry Safety Detection</h1>
         <br>
         <a href="#results" class="btn-primary">View Results</a>
+
+         <a href="https://drive.google.com/file/d/1aB2FeGUO2iGV7VycvBP9HlvJ-uMO8KZ1/view?usp=sharing" class="btn-primary">Demo Video</a>
     </section>
 
     <!-- Enhanced Text Block Section -->
@@ -236,9 +238,40 @@
         </ul>
 
         <h4>Dataset</h4>
-        <p>The dataset used for training this model is the PPE detection dataset available on Roboflow. It contains images of people wearing PPE equipment in various environments. </p>
+        <p>The dataset used for training this model is the PPE detection dataset available on Roboflow. It contains images of people wearing PPE equipment in various environments.</p>
 
         <p>The training set contains 2.6k images, the validation set contains 114 images, and the testing set contains 82 images. The input dimensions for each image are 640x640.</p><br>
+    </section>
+
+    <!-- Project Overview Section -->
+    <section class="enhanced-text-block">
+        <h1>Industrial Safety Equipment Detection Project</h1>
+        <h2>Project Objective</h2>
+        <p>The objective of this project is to ensure worker safety in industrial environments by automatically checking whether workers are wearing the required safety equipment (such as helmets, masks, and jackets). The system uses a live camera feed to monitor workers in real time.</p>
+        <p>A detection model identifies whether safety equipment is present or missing.</p>
+        <p>If a violation is detected, an email notification is sent to the concerned authority.</p>
+        <p>This helps prevent accidents and improves compliance with safety rules.</p>
+
+        <h2>Prototype and Its Demo Status</h2>
+        <p>At present, the system has been developed and tested on a local computer using a webcam.</p>
+        <p><strong>Demo Capabilities:</strong></p>
+        <ul>
+            <li>Captures live video.</li>
+            <li>Detects the presence of safety gear in real time.</li>
+            <li>Sends email notifications when violations occur.</li>
+            <li>A demo video is available to illustrate how the system works.</li>
+        </ul>
+        <p>This confirms that the concept is working successfully on a small scale.</p>
+
+        <h2>Next Implementation: Real-Time Industrial Setup</h2>
+        <p>The next step is to expand the system from a local demo to an industrial environment. This can be achieved by:</p>
+        <ul>
+            <li>Using CCTV/IP cameras instead of a single webcam.</li>
+            <li>Running the detection software on a central server to process and monitor multiple camera feeds.</li>
+            <li>Sending instant alerts (buzzer, display, email) when violations occur.</li>
+            <li>Storing violation data with time, date, and snapshots for record-keeping.</li>
+            <li>Providing a dashboard for safety officers to view live status and reports.</li>
+        </ul>
     </section>
 
     <!-- Results Section -->
