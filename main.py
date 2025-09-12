@@ -2,15 +2,15 @@ from ultralytics import YOLO
 import cv2
 import cvzone
 import math
-from email_alert import send_email_alert  # ✅ Import the email function
+from email_alert import send_email_alert  
 
 def ppe_detection(file):
     if file is None:
-        cap = cv2.VideoCapture(0)  # Webcam
+        cap = cv2.VideoCapture(0)  
         cap.set(3, 1280)
         cap.set(4, 720)
     else:
-        cap = cv2.VideoCapture(file)  # Video
+        cap = cv2.VideoCapture(file)  
 
     model = YOLO("best.pt")
 
@@ -18,7 +18,7 @@ def ppe_detection(file):
                   'Person', 'Safety Cone', 'Safety Vest', 'machinery', 'vehicle']
 
     myColor = (0, 0, 255)
-    email_sent = False  # Prevent spamming multiple emails per run
+    email_sent = False  
 
     while True:
         success, img = cap.read()
@@ -26,7 +26,7 @@ def ppe_detection(file):
             break
 
         results = model(img, stream=True)
-        violation_detected = False  # flag
+        violation_detected = False  
 
         for r in results:
             boxes = r.boxes
@@ -38,28 +38,27 @@ def ppe_detection(file):
 
                 if conf > 0.5:
                     if currentClass in ['NO-Hardhat', 'NO-Safety Vest', 'NO-Mask']:
-                        myColor = (0, 0, 255)  # Red for violation
+                        myColor = (0, 0, 255) 
                         violation_detected = True
                     elif currentClass in ['Hardhat', 'Safety Vest', 'Mask']:
-                        myColor = (0, 255, 0)  # Green for safe
+                        myColor = (0, 255, 0)  
                     else:
-                        myColor = (255, 0, 0)  # Other classes
+                        myColor = (255, 0, 0) 
 
                     cvzone.putTextRect(img, f'{classNames[cls]} {conf}',
                                        (max(0, x1), max(35, y1)), scale=1, thickness=1,
                                        colorB=myColor, colorT=(255, 255, 255), colorR=myColor, offset=5)
                     cv2.rectangle(img, (x1, y1), (x2, y2), myColor, 3)
 
-        # ✅ Send Email if violation detected and not already sent
         if violation_detected and not email_sent:
             print("🚨 Violation detected! Sending email...")
-            email_sent = send_email_alert()  # Call the email function
+            email_sent = send_email_alert()  
             if email_sent:
                 print("✅ Email sent successfully!")
             else:
                 print("❌ Email sending failed.")
 
-        # Reset email alert if no violation
+       
         if not violation_detected:
             email_sent = False
 
@@ -71,6 +70,6 @@ def ppe_detection(file):
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    # Test with a video
+   
     file = r"F:\Computer_vision\PPE_detection_YOLO\Videos\ppe-2.mp4"
     ppe_detection(file)

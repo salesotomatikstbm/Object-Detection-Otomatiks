@@ -17,3 +17,5 @@ lap
 flask_wtf
 WTForms
 Flask-WTF
+MIMEText
+MIMEMultipart

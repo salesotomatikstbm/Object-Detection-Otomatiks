@@ -7,18 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Video/Image</title>
     <style>
-        /* Global Styles */
         body {
             margin: 0;
             padding: 0;
-            background-color: #ffffff; /* White Background */
-            color: #333; /* Dark text for good contrast */
+            background-color: #ffffff;
+            color: #333;
             font-family: 'Roboto', sans-serif;
         }
 
-        /* Header Styles */
         header.feature-box.top {
-            background-color: #004d7f; /* Dark Blue for Header */
+            background-color: #004d7f;
             color: white;
             padding: 20px;
             text-align: center;
@@ -26,23 +24,22 @@
         }
 
         header.feature-box.second {
-            background-color: #006b97; /* Lighter Blue */
+            background-color: #006b97;
             height: 60px;
-             color: white;
+            color: white;
             text-align: center;
             padding: 10px;
         }
 
-        /* Main Section for Video */
         .features,
         .col-sm {
-            background-color: #ffffff; /* White Background for the Video section */
+            background-color: #ffffff;
             width: 90%;
             max-width: 900px;
             margin: 40px auto;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
 
@@ -54,9 +51,8 @@
             object-fit: contain;
         }
 
-        /* Form Section */
         .new {
-            background-color: #e56b6f; /* Light Red for Form Background */
+            background-color: #e56b6f;
             padding: 20px;
             text-align: center;
             border-radius: 10px;
@@ -71,7 +67,7 @@
         }
 
         .new .custom-file-input {
-            background-color: #004d7f; /* Dark Blue for Button */
+            background-color: #004d7f;
             border: none;
             padding: 12px 30px;
             font-size: 16px;
@@ -83,12 +79,11 @@
         }
 
         .new .custom-file-input:hover {
-            background-color: #003a5a; /* Darker Blue on Hover */
+            background-color: #003a5a;
         }
 
-        /* Button Styles */
         .btnCustom {
-            background-color: #004d7f; /* Dark Blue for Submit Button */
+            background-color: #004d7f;
             color: white;
             border: none;
             font-size: 18px;
@@ -99,10 +94,9 @@
         }
 
         .btnCustom:hover {
-            background-color: #003a5a; /* Darker Blue on Hover */
+            background-color: #003a5a;
         }
 
-        /* Miscellaneous Styles */
         .text-center {
             text-align: center;
         }
@@ -110,7 +104,6 @@
         h1 {
             font-size: 2.5rem;
             margin: 10px 0;
-       
         }
 
         h4 {
@@ -118,13 +111,12 @@
             color: #333;
         }
 
-        /* Add padding for sections */
         section {
             padding: 20px;
         }
-          /* Header */
+
         header {
-            background-color: #004d7f; /* Dark Blue */
+            background-color: #004d7f;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -151,15 +143,13 @@
         }
 
         header nav ul li a:hover {
-            color: #e56b6f; /* Light Red */
+            color: #e56b6f;
         }
-
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
     <header>
         <nav>
             <ul>
@@ -169,22 +159,21 @@
             </ul>
         </nav>
     </header>
-    <!-- Header -->
+
     <header class="feature-box top">
         <h1><strong>Object Detection using YOLOv8</strong></h1>
     </header>
+
     <header class="feature-box second">
         <h1><strong>Output Video</strong></h1>
     </header>
 
-    <!-- Video Section -->
     <section class="col-sm">
         <div class="text-center">
             <img src="{{ url_for('video') }}" alt="Upload video" />
         </div>
     </section>
 
-    <!-- Form Section -->
     <section>
         <div class="new">
             <form method="POST" enctype="multipart/form-data">

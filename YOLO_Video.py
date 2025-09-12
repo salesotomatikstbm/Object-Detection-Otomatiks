@@ -2,11 +2,11 @@ from ultralytics import YOLO
 import cv2
 import math
 import cvzone
-from email_alert import send_email_alert  # ✅ Import the send_email_alert function
+from email_alert import send_email_alert  
 
 def video_detection(path_x):
     video_capture = path_x
-    # Create a Webcam Object
+   
     cap = cv2.VideoCapture(video_capture)
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
@@ -14,7 +14,7 @@ def video_detection(path_x):
     model = YOLO("YOLO-Weights/ppe.pt")
     classNames = ['Hardhat', 'Mask', 'NO-Hardhat', 'NO-Mask', 'NO-Safety Vest', 'Person', 'Safety Cone',
                   'Safety Vest', 'machinery', 'vehicle']
-    email_sent = False  # Prevent spamming multiple emails per run
+    email_sent = False  
 
     while True:
         success, img = cap.read()
@@ -22,7 +22,7 @@ def video_detection(path_x):
             break
 
         results = model(img, stream=True)
-        violation_detected = False  # flag
+        violation_detected = False  
 
         for r in results:
             boxes = r.boxes
@@ -34,33 +34,33 @@ def video_detection(path_x):
 
                 if conf > 0.5:
                     if currentClass in ['NO-Hardhat', 'NO-Safety Vest', 'NO-Mask']:
-                        myColor = (0, 0, 255)  # Red for violation
+                        myColor = (0, 0, 255)  
                         violation_detected = True
                     elif currentClass in ['Hardhat', 'Safety Vest', 'Mask']:
-                        myColor = (0, 255, 0)  # Green for safe
+                        myColor = (0, 255, 0)  
                     else:
-                        myColor = (255, 0, 0)  # Other classes
+                        myColor = (255, 0, 0)  
 
-                    # Use cvzone to put text on the image
+                
                     cvzone.putTextRect(img, f'{classNames[cls]} {conf}',
                                        (max(0, x1), max(35, y1)), scale=1, thickness=1,
                                        colorB=myColor, colorT=(255, 255, 255), colorR=myColor, offset=5)
                     cv2.rectangle(img, (x1, y1), (x2, y2), myColor, 3)
 
-        # ✅ Send Email if violation detected and not already sent
+      
         if violation_detected and not email_sent:
             print("🚨 Violation detected! Sending email...")
-            email_sent = send_email_alert()  # Call the email function
+            email_sent = send_email_alert()  
             if email_sent:
                 print("✅ Email sent successfully!")
             else:
                 print("❌ Email sending failed.")
 
-        # Reset email alert if no violation
+       
         if not violation_detected:
             email_sent = False
 
-        yield img  # Return the processed frame
+        yield img 
 
     cap.release()
     cv2.destroyAllWindows()

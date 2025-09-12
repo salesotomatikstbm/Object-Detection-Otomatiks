@@ -4,8 +4,8 @@ from email.mime.multipart import MIMEMultipart
 
 def send_email_alert():
     sender_email = "arungwork63@gmail.com"
-    app_password = "wxja cfzm birg gyim"  # Use Gmail App Password here, not your regular email password
-    receiver_email = "rrecrashdetected@gmail.com"  # Same email for testing
+    app_password = "wxja cfzm birg gyim"  
+    receiver_email = "rrecrashdetected@gmail.com"  
 
     msg = MIMEMultipart()
     msg["From"] = sender_email
@@ -17,7 +17,7 @@ def send_email_alert():
 
     try:
         with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.starttls()  # Secure connection
+            server.starttls()  
             server.login(sender_email, app_password)
             server.sendmail(sender_email, receiver_email, msg.as_string())
         print("✅ Email sent successfully!")

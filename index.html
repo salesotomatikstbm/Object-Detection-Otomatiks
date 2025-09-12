@@ -8,7 +8,6 @@
     <title>ObjectDetection - Otomatiks</title>
 
     <style>
-        /* Global Styles */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -22,16 +21,14 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Header */
         header {
-            background-color: #004d7f; /* Dark Blue */
+            background-color: #004d7f;
             color: white;
             padding: 20px 0;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* Navigation Bar */
         header nav ul {
             list-style: none;
             padding: 0;
@@ -53,11 +50,10 @@
         }
 
         header nav ul li a:hover {
-            color: #e56b6f; /* Light Red */
+            color: #e56b6f;
             text-decoration: underline;
         }
 
-        /* Main Section */
         .main-section {
             background-color: #004d7f;
             color: white;
@@ -82,10 +78,9 @@
             color: white;
         }
 
-        /* Enhanced Text Block Section */
         .enhanced-text-block {
             padding: 40px 20px;
-            text-align: left; /* Left Align Text */
+            text-align: left;
             margin: 20px 0;
             max-width: 800px;
             margin-left: auto;
@@ -115,7 +110,6 @@
             margin-bottom: 10px;
         }
 
-        /* Feature Section */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -140,7 +134,7 @@
 
         .features img {
             width: 100%;
-            max-width: 500px; /* Increased Image Size */
+            max-width: 500px;
             border-bottom: 3px solid #004d7f;
             border-radius: 10px 10px 0 0;
         }
@@ -152,7 +146,6 @@
             color: #333;
         }
 
-        /* Footer */
         footer {
             background-color: #004d7f;
             color: white;
@@ -165,9 +158,8 @@
             font-size: 16px;
         }
 
-        /* Buttons and Links */
         .btn-primary {
-            background-color: #e56b6f; /* Light Red */
+            background-color: #e56b6f;
             color: white;
             padding: 15px 30px;
             border: none;
@@ -180,26 +172,24 @@
         }
 
         .btn-primary:hover {
-            background-color: #d35e63; /* Darker Red */
+            background-color: #d35e63;
         }
 
         .btn-link {
-            color: #004d7f; /* Dark Blue */
+            color: #004d7f;
             font-weight: 600;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .btn-link:hover {
-            color: #e56b6f; /* Light Red */
+            color: #e56b6f;
         }
-
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
     <header>
         <nav>
             <ul>
@@ -210,16 +200,13 @@
         </nav>
     </header>
 
-    <!-- Main Section with Background Image -->
     <section class="main-section">
         <h1>Industry Safety Detection</h1>
         <br>
         <a href="#results" class="btn-primary">View Results</a>
-
-         <a href="https://drive.google.com/file/d/1aB2FeGUO2iGV7VycvBP9HlvJ-uMO8KZ1/view?usp=sharing" class="btn-primary">Demo Video</a>
+        <a href="https://drive.google.com/file/d/1aB2FeGUO2iGV7VycvBP9HlvJ-uMO8KZ1/view?usp=sharing" class="btn-primary">Demo Video</a>
     </section>
 
-    <!-- Enhanced Text Block Section -->
     <section class="enhanced-text-block">
         <h1>PPE Safety Kit Object Detection</h1>
         <p>This project aims to detect PPE safety kits (Personal Protective Equipment) using the YOLO (You Only Look Once) object detection algorithm. The model can detect various types of equipment, including:</p>
@@ -243,7 +230,6 @@
         <p>The training set contains 2.6k images, the validation set contains 114 images, and the testing set contains 82 images. The input dimensions for each image are 640x640.</p><br>
     </section>
 
-    <!-- Project Overview Section -->
     <section class="enhanced-text-block">
         <h1>Industrial Safety Equipment Detection Project</h1>
         <h2>Project Objective</h2>
@@ -274,7 +260,6 @@
         </ul>
     </section>
 
-    <!-- Results Section -->
     <section id="results" class="features">
         <figure>
             <img src="./static/images/1.png" alt="YOLOv8 Result 1">
@@ -290,7 +275,6 @@
         </figure>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 PPE Detection. All rights reserved.</p>
     </footer>

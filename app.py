@@ -6,19 +6,19 @@ from wtforms.validators import InputRequired
 import os
 import cv2
 from YOLO_Video import video_detection
-from email_alert import send_email_alert  # ✅ Import the email function
+from email_alert import send_email_alert  
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'vinayak'
 app.config['UPLOAD_FOLDER'] = 'static/files'
 
-# Use FlaskForm to get input video file from user
+
 class UploadFileForm(FlaskForm):
     file = FileField("File", validators=[InputRequired()])
     submit = SubmitField("Run")
 
-# Stream frames from video and apply object detection
+
 def generate_frames(path_x=''):
     yolo_output = video_detection(path_x)
     for detection_ in yolo_output:
@@ -27,20 +27,19 @@ def generate_frames(path_x=''):
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
-# Render homepage
+
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     session.clear()
     return render_template('indexproject.html')
 
-# Render webcam page
 @app.route("/webcam", methods=['GET', 'POST'])
 def webcam():
     session.clear()
     return render_template('ui.html')
 
-# Handle file upload and save to the server
+
 @app.route('/FrontPage', methods=['GET', 'POST'])
 def front():
     form = UploadFileForm()
@@ -52,12 +51,12 @@ def front():
                                              secure_filename(file.filename))
     return render_template('videoprojectnew.html', form=form)
 
-# Stream the uploaded video with object detection results
+
 @app.route('/video')
 def video():
     return Response(generate_frames(path_x=session.get('video_path', None)), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-# Render the output video stream (webcam or uploaded video)
+
 @app.route('/webapp')
 def webapp():
     return Response(generate_frames(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
